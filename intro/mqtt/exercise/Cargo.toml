@@ -25,7 +25,7 @@ log = "0.4"
 anyhow = "1"
 toml-cfg = "0.1"
 esp32c3 = "=0.4"
-riscv = { version = "0.8" }
+# riscv = { version = "0.8" }
 get-uuid = { path = "../../../common/lib/get-uuid" }
 mqtt-messages = { path = "../../../common/lib/mqtt-messages" }
 

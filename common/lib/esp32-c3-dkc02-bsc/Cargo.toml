@@ -16,4 +16,4 @@ rgb = "0.8"
 log = "0.4"
 anyhow = "1"
 toml-cfg = "0.1"
-riscv = { version = "0.8" }
+# riscv = { version = "0.8" }
