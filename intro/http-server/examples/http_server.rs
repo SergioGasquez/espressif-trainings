@@ -10,7 +10,7 @@ use embedded_svc::{
     http::server::{registry::Registry, Response},
     io::Write,
 };
-use esp32_c3_dkc02_bsc as bsc;
+use esp32_s3_dkc02_bsc as bsc;
 use esp_idf_svc::http::server::{Configuration, EspHttpServer};
 use esp_idf_sys as _; // If using the `binstart` feature of `esp-idf-sys`, always keep this module imported
 

@@ -8,7 +8,7 @@ use embedded_svc::{
     },
     io::Read,
 };
-use esp32_c3_dkc02_bsc as bsc;
+use esp32_s3_dkc02_bsc as bsc;
 use esp_idf_svc::http::client::{EspHttpClient, EspHttpClientConfiguration};
 use esp_idf_sys as _; // If using the `binstart` feature of `esp-idf-sys`, always keep this module imported
 

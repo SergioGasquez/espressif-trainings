@@ -9,7 +9,7 @@ use embedded_svc::mqtt::client::{
     Event::{self, Received},
     Message, Publish, QoS,
 };
-use esp32_c3_dkc02_bsc as bsc;
+use esp32_s3_dkc02_bsc as bsc;
 use esp_idf_svc::{
     log::EspLogger,
     mqtt::client::{EspMqttClient, EspMqttMessage, MqttClientConfiguration},

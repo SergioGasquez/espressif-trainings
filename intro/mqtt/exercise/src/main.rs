@@ -9,7 +9,7 @@ use embedded_svc::mqtt::client::{
     Event::{self, Received},
     Message, Publish, QoS,
 };
-use esp32_c3_dkc02_bsc as bsc;
+use esp32_s3_dkc02_bsc as bsc;
 use esp_idf_svc::{
     log::EspLogger,
     mqtt::client::{EspMqttClient, EspMqttMessage, MqttClientConfiguration},
@@ -39,8 +39,7 @@ pub struct Config {
 }
 
 fn main() -> anyhow::Result<()> {
-
-    // Setup 
+    // Setup
     esp_idf_sys::link_patches();
 
     EspLogger::initialize_default();
@@ -75,7 +74,6 @@ fn main() -> anyhow::Result<()> {
     // let mut client = EspMqttClient::new( ... )?;
 
     // 2. publish an empty hello message
-
 
     loop {
         sleep(Duration::from_secs(1));

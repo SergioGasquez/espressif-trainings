@@ -7,7 +7,7 @@
 use log::*;
 
 // And alias for our Board Support Crate
-use esp32_c3_dkc02_bsc as bsc;
+use esp32_s3_dkc02_bsc as bsc;
 
 // If using the `binstart` feature of `esp-idf-sys`, always keep this module imported
 use esp_idf_sys as _;
