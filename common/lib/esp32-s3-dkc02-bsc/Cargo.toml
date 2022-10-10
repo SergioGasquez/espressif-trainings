@@ -1,5 +1,5 @@
 [package]
-name = "esp32-c3-dkc02-bsc"
+name = "esp32-s3-dkc02-bsc"
 version = "0.1.0"
 edition = "2021"
 
