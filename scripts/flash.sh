@@ -35,4 +35,4 @@ elif [[ "$2" =~ "advanced/i2c-driver" ]]; then
 elif [[ "$2" =~ "advanced/i2c-sensor-reading" ]]; then
     ELF_FILE="i2c-sensor-exercise"
 fi
-web-flash --chip esp32c3 target/${ESP_ARCH}/${BUILD_MODE}/${ELF_FILE}
+web-flash --chip esp32s3 target/${ESP_ARCH}/${BUILD_MODE}/${ELF_FILE}
