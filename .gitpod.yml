@@ -1,9 +1,9 @@
 image:
   file: .gitpod.Dockerfile
 tasks:
- - name: Setup environment variables for ESP-IDF
-   command: |
-     source /home/gitpod/.espressif/frameworks/esp-idf/export.sh > /dev/null 2>&1
+  - name: Setup environment variables for ESP-IDF
+    command: |
+      source /home/gitpod/export-esp.sh
 vscode:
   extensions:
     - matklad.rust-analyzer

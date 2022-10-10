@@ -3,13 +3,18 @@
   "build": {
     "dockerfile": "Dockerfile",
     "args": {
-      "NIGHTLY_VERSION": "nightly-2022-03-10"
+      "NIGHTLY_VERSION": "nightly-2022-03-10",
+      "ESP_IDF_VERSION": "v4.4.1",
+      "ESP_BOARD": "esp32s3",
+      "XTENSA_TOOLCHAIN_VERSION": "1.64.0.0"
     }
   },
+  // Image uses release/v4.4
+  // "image": "docker.io/espressif/idf-rust:esp32s3_v4.4_1.64.0.0",
   "settings": {
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
-    "editor.formatOnSaveMode": "modifications",
+    "editor.formatOnSaveMode": "file",
     "editor.formatOnType": true,
     "lldb.executable": "/usr/bin/lldb",
     "files.watcherExclude": {
