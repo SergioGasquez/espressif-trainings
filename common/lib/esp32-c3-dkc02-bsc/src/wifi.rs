@@ -39,7 +39,7 @@ pub fn wifi(ssid: &str, psk: &str) -> anyhow::Result<Wifi> {
         default_nvs.clone(),
     )?;
 
-    info!("Searching for Wifi network {}", ssid);
+    info!("Searching for Wifi network {} - Pass: {}", ssid, psk);
 
     let ap_infos = wifi.scan()?;
 
@@ -68,12 +68,10 @@ pub fn wifi(ssid: &str, psk: &str) -> anyhow::Result<Wifi> {
         ..Default::default()
     }))?;
 
-    info!("getting Wifi status");
+    info!("Wifi configuration set, about to get status");
 
-    wifi.wait_status_with_timeout(Duration::from_secs(2100), |status| {
-        !status.is_transitional()
-    })
-    .map_err(|err| anyhow::anyhow!("Unexpected Wifi status (Transitional state): {:?}", err))?;
+    wifi.wait_status_with_timeout(Duration::from_secs(20), |status| !status.is_transitional())
+        .map_err(|e| anyhow::anyhow!("Unexpected Wifi status: {:?}", e))?;
 
     let status = wifi.get_status();
 
@@ -86,10 +84,7 @@ pub fn wifi(ssid: &str, psk: &str) -> anyhow::Result<Wifi> {
     {
         info!("Wifi connected");
     } else {
-        bail!(
-            "Could not connect to Wifi - Unexpected Wifi status: {:?}",
-            status
-        );
+        bail!("Unexpected Wifi status: {:?}", status);
     }
 
     let wifi = Wifi {
