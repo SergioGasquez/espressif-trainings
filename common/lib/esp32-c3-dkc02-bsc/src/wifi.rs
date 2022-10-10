@@ -39,7 +39,7 @@ pub fn wifi(ssid: &str, psk: &str) -> anyhow::Result<Wifi> {
         default_nvs.clone(),
     )?;
 
-    info!("Searching for Wifi network {} - Pass: {}", ssid, psk);
+    info!("Searching for Wifi network {}", ssid);
 
     let ap_infos = wifi.scan()?;
 
