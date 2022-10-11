@@ -17,7 +17,7 @@ case "$1" in
         exit 1;;
 esac
 
-export ESP_ARCH=riscv32imc-esp-espidf
+export ESP_ARCH=xtensa-esp32s3-espidf
 
 ELF_FILE=""
 if [[ "$2" == "intro/hardware-check" ]]; then
@@ -35,4 +35,4 @@ elif [[ "$2" =~ "advanced/i2c-driver" ]]; then
 elif [[ "$2" =~ "advanced/i2c-sensor-reading" ]]; then
     ELF_FILE="i2c-sensor-exercise"
 fi
-web-flash --chip esp32s3 target/${ESP_ARCH}/${BUILD_MODE}/${ELF_FILE}
+~/.cargo/bin/web-flash --chip esp32s3 target/${ESP_ARCH}/${BUILD_MODE}/${ELF_FILE}
