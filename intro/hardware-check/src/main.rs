@@ -33,9 +33,9 @@ fn main() -> anyhow::Result<()> {
     use bsc::led::RGB8;
 
     esp_idf_sys::link_patches();
-    esp_idf_svc::log::EspLogger::initialize_default();
+    // esp_idf_svc::log::EspLogger::initialize_default();
 
-    info!("Hello, world!");
+    println!("Hello, world!");
 
     // Start the LED off yellow
     let mut led = bsc::led::WS2812RMT::new()?;
@@ -59,7 +59,7 @@ fn main() -> anyhow::Result<()> {
         led.set_pixel(RGB8::new(0, 0, 50))?;
         // Wait...
         std::thread::sleep(std::time::Duration::from_secs(1));
-        info!("Hello, world!");
+        println!("Hello, world!");
 
         // Green!
         led.set_pixel(RGB8::new(0, 50, 0))?;

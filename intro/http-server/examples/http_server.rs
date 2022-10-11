@@ -5,7 +5,7 @@ use std::{
     time::Duration,
 };
 
-use bsc::{temp_sensor::BoardTempSensor, wifi::wifi};
+use bsc::wifi::wifi;
 use embedded_svc::{
     http::server::{registry::Registry, Response},
     io::Write,
@@ -35,12 +35,12 @@ fn main() -> anyhow::Result<()> {
         Ok(())
     })?;
 
-    let temp_sensor_main = Arc::new(Mutex::new(BoardTempSensor::new_taking_peripherals()));
-    let temp_sensor = temp_sensor_main.clone();
+    // let temp_sensor_main = Arc::new(Mutex::new(BoardTempSensor::new_taking_peripherals()));
+    // let temp_sensor = temp_sensor_main.clone();
 
     server.handle_get("/temperature", move |_request, response| {
-        let temp_val = temp_sensor.lock().unwrap().read_owning_peripherals();
-        let html = temperature(temp_val);
+        // let temp_val = temp_sensor.lock().unwrap().read_owning_peripherals();
+        let html = temperature(22.0);
         let mut writer = response.into_writer()?;
         writer.write_all(html.as_bytes())?;
         Ok(())

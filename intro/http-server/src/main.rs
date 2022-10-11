@@ -5,7 +5,7 @@ use std::{
     time::Duration,
 };
 
-use bsc::{temp_sensor::BoardTempSensor, wifi::wifi};
+use bsc::wifi::wifi;
 use embedded_svc::{
     http::{
         server::{registry::Registry, Response},
@@ -30,7 +30,7 @@ fn main() -> anyhow::Result<()> {
 
     let _wifi = wifi(CONFIG.wifi_ssid, CONFIG.wifi_psk)?;
 
-    let mut temp_sensor = BoardTempSensor::new_taking_peripherals();
+    // let mut temp_sensor = BoardTempSensor::new_taking_peripherals();
 
     // TODO your code here:
     // let server_config = ...;
@@ -46,8 +46,8 @@ fn main() -> anyhow::Result<()> {
 
     // prevent program from exiting
     loop {
-        let current_temperature = temp_sensor.read_owning_peripherals();
-        println!("board temperature: {:.2}", current_temperature);
+        // let current_temperature = temp_sensor.read_owning_peripherals();
+        // println!("board temperature: {:.2}", current_temperature);
         sleep(Duration::from_millis(1000));
     }
 }
