@@ -106,7 +106,10 @@ impl WS2812RMT {
         let config = rmt_config_t {
             rmt_mode: rmt_mode_t_RMT_MODE_TX,
             channel: 0,
+            // DevKitC-1
             gpio_num: 48,
+            // DevKitC-1.1
+            // gpio_num: 38,
             clk_div: 2,
             mem_block_num: 1,
             flags: 0,
