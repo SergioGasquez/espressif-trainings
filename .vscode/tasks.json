@@ -25,18 +25,6 @@
         "isDefault": true
       }
     },
-    {
-      "label": "Build & Run Wokwi",
-      "type": "shell",
-      "command": "${workspaceFolder}/scripts/run-wokwi.sh ${input:buildMode} ${input:project}",
-      "options": {
-        "cwd": "${workspaceFolder}/${input:project}"
-      },
-      "group": {
-        "kind": "test",
-        "isDefault": false
-      }
-    },
   ],
   "inputs": [
     {

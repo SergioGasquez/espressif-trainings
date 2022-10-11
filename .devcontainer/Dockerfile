@@ -22,7 +22,7 @@ ADD https://github.com/esp-rs/rust-build/releases/download/v${XTENSA_TOOLCHAIN_V
     install-rust-toolchain.sh
 
 RUN bash install-rust-toolchain.sh \
-    --extra-crates "ldproxy cargo-espflash wokwi-server web-flash" \
+    --extra-crates "ldproxy cargo-espflash web-flash" \
     --build-target "${ESP_BOARD}" \
     --nightly-version "${NIGHTLY_TOOLCHAIN_VERSION}" \
     --esp-idf-version "${ESP_IDF_VERSION}" \
