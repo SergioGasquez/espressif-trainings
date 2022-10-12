@@ -3,14 +3,6 @@ name = "hardware-check"
 version = "0.1.0"
 authors = ["Anatol Ulrich <anatol.ulrich@ferrous-systems.com>"]
 edition = "2021"
-resolver = "2"
-
-[profile.release]
-opt-level = "s"
-
-[profile.dev]
-debug = true    # Symbols are nice and they don't increase the size on Flash
-opt-level = "z"
 
 [features]
 default = ["native"]

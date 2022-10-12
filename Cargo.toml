@@ -1,0 +1,24 @@
+[workspace]
+members = [
+    "advanced/button-interrupt",
+    "advanced/i2c-driver",
+    "advanced/i2c-sensor-reading",
+    "common/lib/esp32-s3-dkc02-bsc",
+    "common/lib/get-uuid",
+    "common/lib/icm42670p",
+    "common/lib/mqtt-messages",
+    "intro/hardware-check",
+    "intro/http-client",
+    "intro/http-server",
+    "intro/mqtt/exercise",
+    "intro/mqtt/host-client",
+]
+
+resolver = "2"
+
+[profile.release]
+opt-level = "s"
+
+[profile.dev]
+debug = true    # Symbols are nice and they don't increase the size on Flash
+opt-level = "z"

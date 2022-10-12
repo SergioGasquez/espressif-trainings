@@ -1,6 +1,6 @@
 use bsc::{
     led::{RGB8, WS2812RMT},
-    temp_sensor::BoardTempSensor,
+    // temp_sensor::BoardTempSensor,
     wifi::wifi,
 };
 use embedded_svc::mqtt::client::{
@@ -49,7 +49,7 @@ fn main() -> anyhow::Result<()> {
     info!("our UUID is:");
     info!("{}", UUID);
 
-    let mut temp_sensor = BoardTempSensor::new_taking_peripherals();
+    // let mut temp_sensor = BoardTempSensor::new_taking_peripherals();
 
     let mut led = WS2812RMT::new()?;
     led.set_pixel(RGB8::new(1, 1, 0))?;
@@ -77,7 +77,7 @@ fn main() -> anyhow::Result<()> {
 
     loop {
         sleep(Duration::from_secs(1));
-        let temp = temp_sensor.read_owning_peripherals();
+        // let temp = temp_sensor.read_owning_peripherals();
 
         // 3. publish CPU temperature
         // client.publish( ... )?;

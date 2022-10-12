@@ -1,24 +1,16 @@
 [package]
-name = "mqtt"
+name = "exercise"
 version = "0.1.0"
 authors = ["Anatol Ulrich <anatol.ulrich@ferrous-systems.com>"]
 edition = "2018"
-resolver = "2"
-
-[profile.release]
-opt-level = "s"
-
-[profile.dev]
-debug = true    # Symbols are nice and they don't increase the size on Flash
-opt-level = "z"
 
 [features]
 default = ["native"]
 native = ["esp-idf-sys/native"]
 
 [dependencies]
-esp-idf-sys = { version = "=0.31.5", features = ["binstart"] }
-esp-idf-svc = { version = "=0.42.1", features = ["experimental", "alloc"] }
+esp-idf-sys = { version = "=0.31.10", features = ["binstart"] }
+esp-idf-svc = { version = "=0.42.5", features = ["experimental", "alloc"] }
 embedded-svc = "=0.22"
 esp32-s3-dkc02-bsc = { path = "../../../common/lib/esp32-s3-dkc02-bsc" }
 log = "0.4"
