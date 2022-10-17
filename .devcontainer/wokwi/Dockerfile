@@ -18,14 +18,20 @@ RUN apt-get update \
     python3 python3-pip python3-venv libusb-1.0-0 libssl-dev pkg-config libtinfo5  libpython2.7 \
     && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts
 
+# Set user
+RUN adduser --disabled-password --gecos "" ${CONTAINER_USER}
+USER ${CONTAINER_USER}
+WORKDIR /home/${CONTAINER_USER}
+
 ENV PATH=${PATH}:$HOME/.cargo/bin
 
 
-ADD https://github.com/esp-rs/rust-build/releases/download/v${XTENSA_TOOLCHAIN_VERSION}/install-rust-toolchain.sh \
+ADD --chown=${CONTAINER_USER}:${CONTAINER_GROUP} \
+    https://github.com/esp-rs/rust-build/releases/download/v${XTENSA_TOOLCHAIN_VERSION}/install-rust-toolchain.sh \
     install-rust-toolchain.sh
-
-RUN bash install-rust-toolchain.sh \
-    --extra-crates "ldproxy cargo-espflash web-flash" \
+RUN chmod a+x install-rust-toolchain.sh \
+    && ./install-rust-toolchain.sh \
+    --extra-crates "ldproxy" \
     --build-target "${ESP_BOARD}" \
     --nightly-version "${NIGHTLY_TOOLCHAIN_VERSION}" \
     --esp-idf-version "${ESP_IDF_VERSION}" \
