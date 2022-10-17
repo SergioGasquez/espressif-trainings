@@ -5,5 +5,5 @@ set -e
 pip3 install esptool
 
 cd espressif-trainings/intro/hardware-check
-cargo +esp fetch
-cargo +esp build --release
+/home/esp/.cargo/bin/cargo +esp fetch
+/home/esp/.cargo/bin/cargo +esp build --release
