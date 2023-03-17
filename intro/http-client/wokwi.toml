@@ -1,0 +1,12 @@
+[wokwi]
+version = 1
+gdbServerPort = 3333
+# Exercise
+elf = "target/riscv32imc-esp-espidf/debug/http-client"
+firmware = "target/riscv32imc-esp-espidf/debug/http-client"
+# HTTP Solution
+# elf = "target/riscv32imc-esp-espidf/debug/examples/http_client"
+# firmware = "target/riscv32imc-esp-espidf/debug/examples/http_client"
+# HTTPS Solution
+# elf = "target/riscv32imc-esp-espidf/debug/examples/http_client"
+# firmware = "target/riscv32imc-esp-espidf/debug/examples/http_client"

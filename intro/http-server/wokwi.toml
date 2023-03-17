@@ -1,0 +1,9 @@
+[wokwi]
+version = 1
+gdbServerPort = 3333
+# Exercise
+# elf = "target/riscv32imc-esp-espidf/debug/http-server"
+# firmware = "target/riscv32imc-esp-espidf/debug/http-server"
+# Solution
+elf = "target/riscv32imc-esp-espidf/debug/examples/http_server"
+firmware = "target/riscv32imc-esp-espidf/debug/examples/http_server"
