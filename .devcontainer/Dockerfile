@@ -19,7 +19,7 @@ ENV PATH=${PATH}:$HOME/.cargo/bin
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- \
     --default-toolchain ${NIGHTLY_VERSION} -y --profile minimal \
-    --component rust-src --target riscv32imc-unknown-none-elf
+    --component rust-src
 
 RUN ARCH=$($HOME/.cargo/bin/rustup show | grep "Default host" | sed -e 's/.* //') && \
     curl -L "https://github.com/esp-rs/espflash/releases/latest/download/cargo-espflash-${ARCH}.zip" -o "${HOME}/.cargo/bin/cargo-espflash.zip" && \
@@ -39,8 +39,6 @@ RUN ARCH=$($HOME/.cargo/bin/rustup show | grep "Default host" | sed -e 's/.* //'
     rm "${HOME}/.cargo/bin/ldproxy.zip" && \
     chmod u+x "${HOME}/.cargo/bin/ldproxy"
 
-
-
 RUN mkdir -p ${HOME}/.espressif/frameworks/ \
     && git clone --branch ${ESP_IDF_VERSION} -q --depth 1 --shallow-submodules \
     --recursive https://github.com/espressif/esp-idf.git \
@@ -52,6 +50,7 @@ RUN mkdir -p ${HOME}/.espressif/frameworks/ \
     && rm -rf .espressif/frameworks/esp-idf/examples \
     && rm -rf .espressif/frameworks/esp-idf/tools/esp_app_trace \
     && rm -rf .espressif/frameworks/esp-idf/tools/test_idf_size
+
 ENV IDF_TOOLS_PATH=${HOME}/.espressif
 RUN echo "source ${HOME}/.espressif/frameworks/esp-idf/export.sh > /dev/null 2>&1" >> ~/.bashrc
 CMD "/bin/bash"
