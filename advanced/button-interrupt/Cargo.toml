@@ -17,8 +17,8 @@ debug     = true # Symbols are nice and they don't increase the size on Flash
 opt-level = "z"
 
 [dependencies]
-anyhow      = "=1.0.75"
-esp-idf-svc = "=0.47.3"
+anyhow      = "=1.0.79"
+esp-idf-svc = "=0.48.0"
 rgb-led     = { path = "../../common/lib/rgb-led" }
 
 [build-dependencies]

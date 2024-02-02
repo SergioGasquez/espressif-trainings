@@ -16,9 +16,9 @@ debug     = true # Symbols are nice and they don't increase the size on Flash
 opt-level = "z"
 
 [dependencies]
-anyhow        = "=1.0.75"
-embedded-svc  = "=0.26.4"
-esp-idf-svc   = "=0.47.3"
+anyhow        = "=1.0.79"
+embedded-svc  = "=0.27.0"
+esp-idf-svc   = "=0.48.0"
 get-uuid      = { path = "../../../common/lib/get-uuid" }
 log           = "=0.4.20"
 mqtt-messages = { path = "../../../common/lib/mqtt-messages" }
